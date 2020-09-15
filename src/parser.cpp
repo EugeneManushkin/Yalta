@@ -121,7 +121,7 @@ void Parse(TokenIterator& iter, TagsWriter& writer)
 {
   while (Valid(iter))
   {
-    if (SkipMatched(iter, "local"))
+    if (SkipMatched(iter, "local") || SkipMatched(iter, "for"))
     {
       ParseLocal(iter, writer);
     }
