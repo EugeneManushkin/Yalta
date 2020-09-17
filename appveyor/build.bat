@@ -6,3 +6,4 @@ cmake --build . --config %CONFIGURATION% || exit /b 1
 md %PRODUCT_DIR%
 move %CONFIGURATION%\* %PRODUCT_DIR% || exit /b 1
 7z a yalta-%APPVEYOR_BUILD_VERSION%-%ARCH%.zip %PRODUCT_DIR% || exit /b 1
+move *.zip "%APPVEYOR_BUILD_FOLDER%" || exit /b 1
