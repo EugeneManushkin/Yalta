@@ -1,0 +1,28 @@
+environment:
+  YALTA_VERSION_MAJOR: 1
+  YALTA_VERSION_MINOR: 1
+  BUILD_ROOT: '%APPVEYOR_BUILD_FOLDER%\build'
+  PRODUCT_DIR: 'yalta'
+  matrix:
+    - compiler: msbuild
+      CONFIGURATION: Release
+      ARCH: x86
+      CMAKE_GENERATOR: '$(CMAKE_GENERATOR_BASE)'
+    - compiler: msbuild
+      CONFIGURATION: Release
+      ARCH: x64
+      CMAKE_GENERATOR: '$(CMAKE_GENERATOR_BASE) Win64'
+
+version: $(YALTA_VERSION_MAJOR).$(YALTA_VERSION_MINOR).0.{build}
+
+install:
+  - git submodule update --init --recursive
+
+build_script:
+  - '%APPVEYOR_BUILD_FOLDER%\appveyor\build.bat'
+
+test_script:
+  - '%APPVEYOR_BUILD_FOLDER%\appveyor\test.bat'
+
+artifacts:
+  - path: yalta-*.zip
