@@ -1,3 +1,4 @@
+project(Yalta)
 set (YALTA_VERSION_MAJOR 0 CACHE STRING "Plugin major version")
 set (YALTA_VERSION_MINOR 0 CACHE STRING "Plugin minor version")
 set (YALTA_BUILD 0 CACHE STRING "Plugin build number")
