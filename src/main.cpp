@@ -8,6 +8,13 @@
 
 namespace
 {
+  std::string Trim(std::string&& str)
+  {
+    auto pos = str.find_last_not_of(" \t\r\n");
+    str.resize(pos == std::string::npos ? str.length() : pos + 1);
+    return std::move(str);
+  }
+
   void ParseFile(char const* fname)
   try
   {
@@ -28,7 +35,7 @@ namespace
   {
     std::string buf;
     while (std::getline(std::cin, buf))
-      ParseFile(buf.c_str());
+      ParseFile(Trim(std::move(buf)).c_str());
   }
 }
 
