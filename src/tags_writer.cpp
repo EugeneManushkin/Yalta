@@ -74,9 +74,9 @@ static size_t appendInputLine (int putc_func (char , void *), const char *const 
     auto offset = ftell(f);
     fseek(f, lineOffset, SEEK_SET);
     char buffer[EffectiveStringLen + 1] = "";
-    fgets(buffer, sizeof(buffer), f);
+    auto success = fgets(buffer, sizeof(buffer), f);
     fseek(f, offset, SEEK_SET);
-    return buffer;
+    return success ? buffer : "";
   }
 
   int putc_func_callback(char c, void *file)
@@ -112,7 +112,7 @@ void TagsWriter::Write(Kind kind, std::deque<Token> const& scope)
   // scope not empty
   fprintf(Output, "%s\t%s\t", scope.back().Sequence.c_str(), Filename.c_str());
   WriteRegex(scope.back().LineOffset, Input, Output);
-  fprintf(Output, "\t%s\tline:%d", KindChar[kind].c_str(), scope.back().LineNum);
+  fprintf(Output, "\t%s\tline:%ld", KindChar[kind].c_str(), scope.back().LineNum);
   for (auto i = scope.begin(); i != --scope.end(); ++i)
     fprintf(Output, "%s%s", i == scope.begin() ? "\tclass:" : ".", i->Sequence.c_str());
 
