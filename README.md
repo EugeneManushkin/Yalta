@@ -11,16 +11,21 @@ Build it from source code. See Build section.
 
 # Build
 Required CMake and compiler with C++11 support.
-```
+```bash
 git clone https://github.com/EugeneManushkin/Yalta.git yalta
 mkdir -p yalta/build && cd yalta/build
-cmake -G <your-cmake-generator> ..
+cmake -DCMAKE_BUILD_TYPE=Release ..
 cmake --build .
 ```
 
 # Usage
 ## Windows
-TODO: describe
+```batch
+:: Index single file:
+yalta.bat path/to/file.lua > tags
+:: Index directory recursive:
+yalta.bat path/to/directory > tags
+```
 ## Linux
 TODO: describe
 
