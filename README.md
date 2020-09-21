@@ -3,20 +3,17 @@
 
 Yalta is a [ctags](https://en.wikipedia.org/wiki/Ctags)-like program that produces tags for source code files written in [Lua](https://www.lua.org/). This is an experimental program made as a PoC for pool request to [Universal Ctags](https://ctags.io/).
 
+# Integrate with CtagsSourceNavigator
+This utility may be integrated with [CtagsSourceNavigator](https://github.com/EugeneManushkin/CtagsSourceNavigator) plugin.
+Download latest stable version from [releases](https://github.com/EugeneManushkin/Yalta/releases) page and unpack it. Open [Far Manager](https://www.farmanager.com/)
+and then open plugin configuration page (**F11->Ctags Source Navigator->C Plugin configuration**). Uncheck "Use built in ctags utility" and put
+full path to ctags_wrapper.bat script located in unpacked_release_folder\yalta\ctags_wrapper.bat.
+
 # Install
 ### Windows
 Download latest stable version from [releases](https://github.com/EugeneManushkin/Yalta/releases) page.
 ## Linux
 Build it from source code. See Build section.
-
-# Build
-Required CMake and compiler with C++11 support.
-```bash
-git clone https://github.com/EugeneManushkin/Yalta.git yalta
-mkdir -p yalta/build && cd yalta/build
-cmake -DCMAKE_BUILD_TYPE=Release ..
-cmake --build .
-```
 
 # Usage
 ## Windows
@@ -28,6 +25,15 @@ yalta.bat path/to/directory > tags
 ```
 ## Linux
 TODO: describe
+
+# Build
+Required CMake and compiler with C++11 support.
+```bash
+git clone https://github.com/EugeneManushkin/Yalta.git yalta
+mkdir -p yalta/build && cd yalta/build
+cmake -DCMAKE_BUILD_TYPE=Release ..
+cmake --build .
+```
 
 # What is captured?
 Unlike the Universal Ctags Yalta recognizes language constructions separated with spaces, line breaks and comments. 
