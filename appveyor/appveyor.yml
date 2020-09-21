@@ -3,6 +3,8 @@ environment:
   YALTA_VERSION_MINOR: 1
   BUILD_ROOT: '%APPVEYOR_BUILD_FOLDER%\build'
   PRODUCT_DIR: 'yalta'
+  CTAGS_UTIL_DATE: 2019-03-31
+  CTAGS_UTIL_REV: 95975bd1
   matrix:
     - compiler: msbuild
       CONFIGURATION: Release
