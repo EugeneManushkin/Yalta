@@ -11,5 +11,5 @@ echo !_TAG_PROGRAM_URL	https://github.com/EugeneManushkin/Yalta	/official site/
 echo !_TAG_PROGRAM_VERSION	0	//
 if exist %TARGET%\* (
     cd %TARGET%
-    (for /R %%G in (*.lua) do @echo %%G) | %INDEXER%
+    for /R %%G in (*.lua) do %INDEXER% "%%~G"
 ) else %INDEXER% %TARGET%
