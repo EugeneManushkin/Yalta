@@ -105,6 +105,7 @@ void TagsWriter::Write(Kind kind, std::deque<Token> const& scope)
   static std::unordered_map<Kind, std::string> KindChar = {
       {Kind::Local, "l"}
     , {Kind::Function, "f"}
+    , {Kind::Table, "t"}
     , {Kind::Key, "k"}
     , {Kind::Assignment, "a"}
   };

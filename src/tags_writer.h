@@ -10,6 +10,7 @@ enum class Kind
 {
   Local,
   Function,
+  Table,
   Key,
   Assignment,
 };

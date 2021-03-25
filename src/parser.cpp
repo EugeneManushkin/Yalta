@@ -30,6 +30,11 @@ namespace
     return !token.Sequence.compare("function");
   }
 
+  bool IsTableConstructor(Token const& token)
+  {
+    return !token.Sequence.compare("{");
+  }
+
   bool SkipMatched(TokenIterator& iter, char const* sequence)
   {
     bool matched = false;
@@ -61,6 +66,7 @@ namespace
 
   //TODO: check repeated names threshold
     Kind kind = IsFunction(*iter) ? Kind::Function :
+                IsTableConstructor(*iter) ? Kind::Table :
                 sequence.size() > 1 ? Kind::Key :
                 Kind::Assignment;
     writer.Write(kind, sequence);
