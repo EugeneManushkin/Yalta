@@ -10,13 +10,13 @@ class CharIterator
 public:
   CharIterator(FILE* f);
   CharIterator& operator++();
-  char operator*() const;
+  int operator*() const;
   long GetLineNumber() const;
   long GetLineOffset() const;
 
 private:
   FILE* File;
-  char Current;
+  int Current;
   long LineNumber;
   long LineOffset;
 };

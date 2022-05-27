@@ -187,7 +187,7 @@ CharIterator& CharIterator::operator++()
   return *this;
 }
 
-char CharIterator::operator*() const
+int CharIterator::operator*() const
 {
   return Current;
 }
