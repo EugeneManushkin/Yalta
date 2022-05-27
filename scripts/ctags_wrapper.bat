@@ -1,5 +1,4 @@
 @echo off
-SETLOCAL ENABLEDELAYEDEXPANSION
 set workdir=%CD%\
 set YALTA=%~dp0bin\yalta.exe
 %~dp0bin\ctags.exe --exclude=*.lua %* || exit /b 1
@@ -19,7 +18,9 @@ exit /b
 
 :index_relative
     set fname=%~dpnx1
+    SETLOCAL ENABLEDELAYEDEXPANSION
     %YALTA% "!fname:%workdir%=!"
+    SETLOCAL DISABLEDELAYEDEXPANSION
 exit /b
 
 :index_lua
